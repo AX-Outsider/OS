@@ -14,11 +14,14 @@ int main() {
 	}
 
 	error = fclose(in);
-	if (error == -1){
+	if (error != 0){
 		perror("Can't close FILE");
 	}
 
-	seteuid(getuid());
+	error = setuid(getuid());
+	if (error != 0)
+		perror("setuid() failed");
+	
 	printf("Real ID: %d\n", getuid());
 	printf("Effective ID: %d\n", geteuid());
 
@@ -28,7 +31,7 @@ int main() {
 	}
 
 	error = fclose(in);
-	if (error == -1){
+	if (error != 0){
 		perror("Can't close FILE");
 	}
 
