@@ -19,9 +19,11 @@ int main() {
 	}
 
 	error = setuid(getuid());
-	if (error != 0)
+	if (error != 0){
 		perror("setuid() failed");
+	}
 	
+	printf("after setuid\n");
 	printf("Real ID: %d\n", getuid());
 	printf("Effective ID: %d\n", geteuid());
 
