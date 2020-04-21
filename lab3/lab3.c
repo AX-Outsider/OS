@@ -18,12 +18,12 @@ int main() {
 		perror("Can't close FILE");
 	}
 
-	error = setuid(getuid());
+	error = seteuid(getuid());
 	if (error != 0){
-		perror("setuid() failed");
+		perror("seteuid() failed");
 	}
 	
-	printf("after setuid\n");
+	printf("after seteuid\n");
 	printf("Real ID: %d\n", getuid());
 	printf("Effective ID: %d\n", geteuid());
 
