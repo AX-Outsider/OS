@@ -14,7 +14,7 @@ int main() {
 	}
 
 	error = fclose(in);
-	if (error == EOF){
+	if (error == -1){
 		perror("Can't close FILE");
 	}
 
@@ -28,7 +28,7 @@ int main() {
 	}
 
 	error = fclose(in);
-	if (error == EOF){
+	if (error == -1){
 		perror("Can't close FILE");
 	}
 
